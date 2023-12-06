@@ -215,6 +215,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $query = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email = '$useremail'");
             $row = mysqli_fetch_assoc($query);
             $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['user_name'] = $row['user_firstname'] . " " . $row['user_lastname'];
             header("location:home.php");
         }else{
             echo mysqli_error($conn);
